@@ -1,4 +1,4 @@
-from sympy import zeros, diff
+from sympy import zeros, diff, symbols
 
 
 def christoffel(ds, g_mn, abc = [], ABC = []):
@@ -20,7 +20,7 @@ def christoffel(ds, g_mn, abc = [], ABC = []):
     for i, e in enumerate(ds):
         #Las variables de la métrica
         if e != '': 
-            exec("var"+str(i)+"=sp.symbols('"+e+"')")
+            exec("var"+str(i)+"=symbols('"+e+"')")
             exec("orden.append(var"+str(i)+")")
 
     ordenSt = [str(k) for k in orden]
