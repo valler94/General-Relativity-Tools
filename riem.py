@@ -1,8 +1,8 @@
-from sympy import diff, simplify
+from sympy import diff, simplify, symbols
 from christ import christoffel
 
 
-def riemman(ds, g_mn, abcd):
+def riemann(ds, g_mn, abcd):
     
     # calcula R^a_{bcd}
     # ds se refiere al orden de las variabels en el intervalo
@@ -16,7 +16,7 @@ def riemman(ds, g_mn, abcd):
         #str -> sym
         if e != '': 
             lenDS += 1
-            exec("var"+str(i)+"=sp.symbols('"+e+"')")
+            exec("var"+str(i)+"=symbols('"+e+"')")
             exec("orden.append(var"+str(i)+")")
 
 
@@ -64,7 +64,7 @@ def riemman(ds, g_mn, abcd):
 #ds = ['t', 'r', 'th', 'fi']
 #g_mn = [['-(1-2*G*M/r)', '', '', ''], ['', '1/(1-2*G*M/r)', '', ''], ['', '', 'r**2', ''], ['', '', '', 'r**2*sin(th)**2']]
 #
-#R = riemman(ds, g_mn, abcd)[0]
+#R = riemann(ds, g_mn, abcd)[0]
 #print(R)
 #R.subs('t', 'th')
 #print(R)
@@ -77,7 +77,7 @@ a simple but powerful application for symbolic calculus on Numerical Relativity
 
 
 
-Riemman tensor
+riemann tensor
 Cristophel symbol
 symbolic calculator
 Metric Simple
