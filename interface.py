@@ -2,7 +2,7 @@
 
 
 from christ import christoffel
-from riem import riemman
+from riem import riemann
 #import os
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -17,7 +17,7 @@ class Ui_TabWidget(object):
 
     font_1 = QtGui.QFont()
     font_1.setFamily("DejaVu Math TeX Gyre")
-    font_1.setPointSize(15)
+    font_1.setPointSize(12)
 
     font_2 = QtGui.QFont()
     font_2.setFamily("DejaVu Math TeX Gyre")
@@ -31,7 +31,7 @@ class Ui_TabWidget(object):
 
         TabWidget.setObjectName("TabWidget")
         TabWidget.resize(776, 513)
-        TabWidget.setWindowTitle("Numerical Relativity TOOLS")
+        TabWidget.setWindowTitle("CIRCUIT")
 
 
         # Inputs Tab >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -346,7 +346,7 @@ class Ui_TabWidget(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         TabWidget.addTab(self.tab_2, "")
-        TabWidget.setTabText(TabWidget.indexOf(self.tab_2),"Riemman tensor")
+        TabWidget.setTabText(TabWidget.indexOf(self.tab_2),"Riemann tensor")
 
         # >> main grid
         self.gridLayout_8 = QtWidgets.QGridLayout(self.tab_2)
@@ -447,7 +447,7 @@ class Ui_TabWidget(object):
 
         # >> >> >> calculateR
         self.calculateR = QtWidgets.QPushButton(self.tab_2)
-        self.calculateR.clicked.connect(self.riemmanCalc)
+        self.calculateR.clicked.connect(self.riemannCalc)
         self.calculateR.setObjectName("calculateR")
         self.calculateR.setText("calculate")
 
@@ -519,11 +519,11 @@ class Ui_TabWidget(object):
     def handleErrors(self, target, subject, args = []):
 
         if subject == "syntaxError": 
-            errMsg = "We have detected a syntax error in the element [" + str(args[0]) + \
+            errMsg = "We have detected a syntax error in the entry [" + str(args[0]) + \
             ", " + str(args[1]) + "] of the\nInput Matrix (first tab).\n" \
             "Remember to use proper python syntax!\n\n" \
-            "If you need further help or you think you have found a bug,\n please sumbit the issue " \
-            "to the devs on GITHUB_LINK."
+            "If you need further help or you think you have found a bug,\nplease sumbit the issue " \
+            "to the devs on \n\n\thttps://github.com/valler94/General-Relativity-Tools/issues."
             
             target.setText("error! (see the logs)")
             self.lab_status.setText("Syntax error!")
@@ -584,7 +584,7 @@ class Ui_TabWidget(object):
             "(or do it yourself and open a Pull Request on GitHub)"
             self.lab_errMsg.setText(errMsg)
     
-    def riemmanCalc(self):
+    def riemannCalc(self):
 
         ds = [self.ds1.text(), self.ds2.text(), self.ds3.text(), self.ds4.text()]
         g_mn = [[self.m00.text(), self.m01.text(), self.m02.text(), self.m03.text()], \
@@ -593,7 +593,7 @@ class Ui_TabWidget(object):
                 [self.m30.text(), self.m31.text(), self.m32.text(), self.m33.text()], \
                 ]
         abcd = [self.ra.text(), self.rb.text(), self.rc.text(), self.rd.text()]
-        result = riemman(ds, g_mn, abcd)
+        result = riemann(ds, g_mn, abcd)
 
         if result[0] == "syntaxError": 
             self.handleErrors(self.label_10, "syntaxError", [result[1], result[2]])
