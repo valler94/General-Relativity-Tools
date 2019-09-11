@@ -53,7 +53,7 @@ Si tienes una idea que para mejorar la apliación, o quieres sugerir la implemen
 
   - Crea un issue con ella. Háznoslo saber. Recibirás una respuesta en poco tiempo.
 
-  - Si te entretiene programar y aún encuentras tiempo más allá de lo que supone el último año de física, estaremos encantados de valorar tu Pull Request e introducir tu ocntribución en este repositorio.
+  - Si te entretiene programar y aún encuentras tiempo más allá de lo que supone el último año de física, estaremos encantados de valorar tu Pull Request e introducir tu contribución en este repositorio.
 
 
 
