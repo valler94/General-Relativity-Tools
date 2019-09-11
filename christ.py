@@ -87,7 +87,7 @@ def christoffel(ds, g_mn, abc = [], ABC = []):
         chrst = 0
         
         for di in range(dim):
-            chrst += 1./2*gabU[ci][di]*(diff(gabD[bi][di], ordenSt[ai]) + sp.diff(gabD[di][ai], ordenSt[bi]) - diff(gabD[ai][bi], ordenSt[di]))
+            chrst += 1./2*gabU[ci][di]*(diff(gabD[bi][di], ordenSt[ai]) + diff(gabD[di][ai], ordenSt[bi]) - diff(gabD[ai][bi], ordenSt[di]))
         
         #sp.pprint(Integral(sqrt(1/x), x), use_unicode=False)
 
